@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">盘点机</string>
+    <string name="writeTag">标签写入</string>
+    <string name="history">查询记录</string>
+    <string name="ckpd">出库盘点</string>
+    <string name="xdpd">下道盘点</string>
+    <string name="fcpd">返程盘点</string>
+    <string name="gkpd">归库盘点</string>
+    <string name="developer">内蒙古新运生产力促进中心</string>
+    <string name="about">简易云操作简单、效率高、更智能化</string>
+    <string name="setPower">设置功率</string>
+    <string name="title_writeTag">写入标签</string>
+    <string name="TID">Exxxxxxxxxxxxx</string>
+    <string name="btn_read_TID">读标签</string>
+    <string name="btn_write_TID">写标签</string>
+    <string name="write_TID">例如:锤子标签</string>
+    <string name="write_label">写标签</string>
+    <string name="read_label">读取TID</string>
+</resources>
