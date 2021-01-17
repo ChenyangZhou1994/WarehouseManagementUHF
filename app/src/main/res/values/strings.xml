@@ -16,4 +16,9 @@
     <string name="write_TID">例如:锤子标签</string>
     <string name="write_label">写标签</string>
     <string name="read_label">读取TID</string>
+    <string name="title_CKPD">出库盘点</string>
+    <string name="lbl_Total">总数</string>
+    <string name="title_XDPD">下到盘点</string>
+    <string name="title_FCPD">返程盘点</string>
+    <string name="title_GKPD">归库盘点</string>
 </resources>

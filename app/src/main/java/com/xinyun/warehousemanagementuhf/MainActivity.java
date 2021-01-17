@@ -2,6 +2,7 @@ package com.xinyun.warehousemanagementuhf;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,18 +50,28 @@ public class MainActivity extends AppCompatActivity {
             int id = v.getId();
             switch (id) {
                 case R.id.imageButton_writeTag:
-                    Intent intent = new Intent(MainActivity.this, WriteTagActivity.class);
-                    startActivity(intent);
+                    Intent intentWriteTag = new Intent(MainActivity.this, WriteTagActivity.class);
+                    startActivity(intentWriteTag);
                     break;
                 case R.id.imageButton_history:
+                    Intent intentScanHistory = new Intent(MainActivity.this, ScanHistoryActivity.class);
+                    startActivity(intentScanHistory);
                     break;
                 case R.id.imageButton_ckpd:
+                    Intent intentCKPD = new Intent(MainActivity.this, CKPDActivity.class);
+                    startActivity(intentCKPD);
                     break;
                 case R.id.imageButton_xdpd:
+                    Intent intentXDPD = new Intent(MainActivity.this, XDPDActivity.class);
+                    startActivity(intentXDPD);
                     break;
                 case R.id.imageButton_fcpd:
+                    Intent intentFCPD = new Intent(MainActivity.this, FCPDActivity.class);
+                    startActivity(intentFCPD);
                     break;
                 case R.id.imageButton_gkpd:
+                    Intent intentGKPD = new Intent(MainActivity.this, GKPDActivity.class);
+                    startActivity(intentGKPD);
                     break;
                 case R.id.btn_SetPower:
                     break;

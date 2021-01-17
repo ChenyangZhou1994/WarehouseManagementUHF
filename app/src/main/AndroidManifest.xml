@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WarehouseManagementUHF">
-        <activity android:name=".WriteTagActivity"></activity>
+        <activity android:name=".GKPDActivity"></activity>
+        <activity android:name=".FCPDActivity" />
+        <activity android:name=".XDPDActivity" />
+        <activity android:name=".CKPDActivity" />
+        <activity android:name=".ScanHistoryActivity" />
+        <activity android:name=".WriteTagActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
