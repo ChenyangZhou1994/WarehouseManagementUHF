@@ -15,6 +15,7 @@ public class CKPDActivity extends AppCompatActivity {
     private Button btn_CleanData;
 
     private RFIDWithUHF mReader;
+    //
     //开始扫描和停止扫描状态
     private boolean pressedFlag = false;
 
