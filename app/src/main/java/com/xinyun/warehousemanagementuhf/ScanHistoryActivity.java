@@ -46,10 +46,10 @@ public class ScanHistoryActivity extends AppCompatActivity {
 
             while (cursor.moveToNext()) {
                 Data data = new Data();
-                data.DH = cursor.getString(2);
-                data.PDSJ = cursor.getString(3);
-                data.PDLX = cursor.getString(4);
-                data.PDR = cursor.getString(5);
+                data.DH = cursor.getString(0);
+                data.PDSJ = cursor.getString(1);
+                data.PDLX = cursor.getString(2);
+                data.PDR = cursor.getString(3);
                 datas.add(data);
             }
             cursor.close();
