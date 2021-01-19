@@ -20,6 +20,8 @@ import java.util.Arrays;
 
 public class CKPDActivity extends AppCompatActivity {
 
+    private MyOpenHelper openHelper;
+
     private Button btn_Start;
     private Button btn_CleanData;
     private ListView lv_data;
@@ -39,6 +41,8 @@ public class CKPDActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_k_p_d);
+
+        openHelper = new MyOpenHelper(this);
 
         btn_Start = (Button) findViewById(R.id.btn_CKPD_Start);
         btn_Start.setOnClickListener(new MyOnclickListener());
@@ -109,16 +113,17 @@ public class CKPDActivity extends AppCompatActivity {
             int id = v.getId();
             switch (id) {
                 case R.id.btn_CKPD_Start:
-                    readTag();
-                    isStop = true;
-                    lv_data.setAdapter(new MyAdapter());
                     if (isStop) {
                         loopFlag = true;
                         btn_Start.setText("启动扫描");
                         isStop = false;
+                        mReader.free();
                     }
+                    readTag();
+                    lv_data.setAdapter(new MyAdapter());
                     break;
                 case R.id.btn_CKPD_CleanData:
+
                     break;
             }
         }
@@ -127,6 +132,7 @@ public class CKPDActivity extends AppCompatActivity {
     public void readTag() {
         if (mReader.startInventoryTag(0, 0)) {
             loopFlag = true;
+            isStop = true;
             btn_Start.setText("停止扫描");
             new TagThread().start();
         }
