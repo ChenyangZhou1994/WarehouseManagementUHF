@@ -2,10 +2,10 @@ package com.xinyun.warehousemanagementuhf.bean;
 
 public class Data {
 
-    public int DH;
-    public int PDSJ;
-    public int PDLX;
-    public int PDR;
+    public String DH;
+    public String PDSJ;
+    public String PDLX;
+    public String PDR;
 
     @Override
     public String toString() {
