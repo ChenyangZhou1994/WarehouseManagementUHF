@@ -119,8 +119,10 @@ public class CKPDActivity extends AppCompatActivity {
                         isStop = false;
                         mReader.free();
                     }
-                    readTag();
-                    lv_data.setAdapter(new MyAdapter());
+                    else {
+                        readTag();
+                        lv_data.setAdapter(new MyAdapter());
+                    }
                     break;
                 case R.id.btn_CKPD_CleanData:
 
