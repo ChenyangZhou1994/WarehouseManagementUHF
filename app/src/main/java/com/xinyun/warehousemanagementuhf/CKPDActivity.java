@@ -27,6 +27,7 @@ public class CKPDActivity extends AppCompatActivity {
     private ArrayList<Tag> tags = new ArrayList<Tag>();
 
     private boolean loopFlag = false;
+    private boolean isStop = false;
 
     private RFIDWithUHF mReader;
 
@@ -109,8 +110,13 @@ public class CKPDActivity extends AppCompatActivity {
             switch (id) {
                 case R.id.btn_CKPD_Start:
                     readTag();
-                    loopFlag = true;
+                    isStop = true;
                     lv_data.setAdapter(new MyAdapter());
+                    if (isStop) {
+                        loopFlag = true;
+                        btn_Start.setText("启动扫描");
+                        isStop = false;
+                    }
                     break;
                 case R.id.btn_CKPD_CleanData:
                     break;
@@ -119,42 +125,27 @@ public class CKPDActivity extends AppCompatActivity {
     }
 
     public void readTag() {
-        if (btn_Start.getText() == "停止扫描") {
-            //停止识别
-            mReader.stopInventory();
-            btn_Start.setText("启动扫描");
-            loopFlag = false;
-            mReader.free();
-            return;
-        }
-        if (!loopFlag) {
-            if (mReader.startInventoryTag(0, 0)) {
-                loopFlag = true;
-                btn_Start.setText("停止扫描");
-                continuousRead();
-            }
+        if (mReader.startInventoryTag(0, 0)) {
+            loopFlag = true;
+            btn_Start.setText("停止扫描");
+            new TagThread().start();
         }
     }
 
-
-
-    private void continuousRead() {
-        new Thread(new MyThread()).start();
-    }
-
-    class MyThread implements Runnable {
-
-        @Override
+    class TagThread extends Thread {
         public void run() {
+            String[] res = null;
             while (loopFlag) {
-                String[] res = mReader.readTagFromBuffer();
-                System.out.println(res[0]);
-                Tag tag = new Tag();
-                tag.SBMC = res[0];
-                System.out.println(tag.SBMC);
-                tags.add(tag);
+                res = mReader.readTagFromBuffer();
+                if (res != null) {
+                    Tag tag = new Tag();
+                    tag.SBID = res[0];
+                    tags.add(tag);
+                    System.out.println(res[0]);
+                }
             }
         }
     }
+
 
 }
