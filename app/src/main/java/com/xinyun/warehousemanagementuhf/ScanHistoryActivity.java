@@ -33,7 +33,7 @@ public class ScanHistoryActivity extends AppCompatActivity {
         lv_History = (ListView) findViewById(R.id.lv_History);
         btn_History.setOnClickListener(new MyOnclickListener());
         openHelper = new MyOpenHelper(this);
-        lv_History.setAdapter(new MyAdapter());
+
 
     }
 
@@ -58,7 +58,7 @@ public class ScanHistoryActivity extends AppCompatActivity {
             for (Data data:datas) {
                 System.out.println(data);
             }
-
+            lv_History.setAdapter(new MyAdapter());
         }
     }
 
