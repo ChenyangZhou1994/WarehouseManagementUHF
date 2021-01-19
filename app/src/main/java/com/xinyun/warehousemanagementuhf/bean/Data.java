@@ -3,7 +3,7 @@ package com.xinyun.warehousemanagementuhf.bean;
 public class Data {
 
     public String DH;
-    public String PDSJ;
+    public int PDSJ;
     public String PDLX;
     public String PDR;
 

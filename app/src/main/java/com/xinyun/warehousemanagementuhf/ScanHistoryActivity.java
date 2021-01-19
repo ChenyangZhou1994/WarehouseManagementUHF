@@ -43,10 +43,10 @@ public class ScanHistoryActivity extends AppCompatActivity {
 
             while (cursor.moveToNext()) {
                 Data data = new Data();
-                data.DH = cursor.getInt(cursor.getColumnIndex("DH"));
-                data.PDSJ = cursor.getInt(cursor.getColumnIndex("PDSJ"));
-                data.PDLX = cursor.getInt(cursor.getColumnIndex("PDLX"));
-                data.PDR = cursor.getInt(cursor.getColumnIndex("PDR"));
+                data.DH = cursor.getString(cursor.getColumnIndex("DH"));
+                data.PDSJ = cursor.getColumnIndex("PDSJ");
+                data.PDLX = cursor.getString(cursor.getColumnIndex("PDLX"));
+                data.PDR = cursor.getString(cursor.getColumnIndex("PDR"));
                 datas.add(data);
             }
             cursor.close();
