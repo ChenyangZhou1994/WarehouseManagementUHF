@@ -113,7 +113,7 @@
                     android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:gravity="left"
-                    android:text="Data"
+                    android:text="Datas"
                     android:textSize="15dp"
                     android:textColor="#FF3300"
                     android:textStyle="bold"/>
@@ -122,16 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="left"
-                    android:text="Qty"
-                    android:textSize="15dp"
-                    android:textColor="#FF3300"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="left"
-                    android:text="RSSI"
+                    android:text="Counts"
                     android:textSize="15dp"
                     android:textColor="#FF3300"
                     android:textStyle="bold"/>

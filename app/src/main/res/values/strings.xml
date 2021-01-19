@@ -21,4 +21,5 @@
     <string name="title_XDPD">下到盘点</string>
     <string name="title_FCPD">返程盘点</string>
     <string name="title_GKPD">归库盘点</string>
+    <string name="title_History">历史查询</string>
 </resources>
