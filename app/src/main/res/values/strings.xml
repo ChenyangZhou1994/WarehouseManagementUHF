@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">盘点机</string>
+    <string name="app_name">兴运致远</string>
     <string name="writeTag">标签写入</string>
     <string name="history">查询记录</string>
     <string name="ckpd">出库盘点</string>
