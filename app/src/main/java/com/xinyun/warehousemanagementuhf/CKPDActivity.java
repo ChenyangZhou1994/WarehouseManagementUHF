@@ -109,6 +109,7 @@ public class CKPDActivity extends AppCompatActivity {
             switch (id) {
                 case R.id.btn_CKPD_Start:
                     readTag();
+                    loopFlag = true;
                     break;
                 case R.id.btn_CKPD_CleanData:
                     break;
@@ -150,7 +151,8 @@ public class CKPDActivity extends AppCompatActivity {
                 String[] res = mReader.readTagFromBuffer();
                 if (res != null) {
                     Tag tag = new Tag();
-                    tag.SBMC = res[0].toString();
+                    tag.SBMC = res[0];
+                    System.out.println(tag.SBMC);
                     tags.add(tag);
                 }
             }
