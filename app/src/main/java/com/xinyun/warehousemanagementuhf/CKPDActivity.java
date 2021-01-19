@@ -16,13 +16,13 @@ import com.xinyun.warehousemanagementuhf.bean.Data;
 import com.xinyun.warehousemanagementuhf.bean.Tag;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CKPDActivity extends AppCompatActivity {
 
     private Button btn_Start;
     private Button btn_CleanData;
     private ListView lv_data;
-    //12345
 
     private ArrayList<Tag> tags = new ArrayList<Tag>();
 
@@ -45,7 +45,7 @@ public class CKPDActivity extends AppCompatActivity {
         btn_CleanData.setOnClickListener(new MyOnclickListener());
 
         lv_data = (ListView) findViewById(R.id.lv_data);
-        lv_data.setAdapter(new MyAdapter());
+
 
         try {
             mReader = RFIDWithUHF.getInstance();
@@ -110,6 +110,7 @@ public class CKPDActivity extends AppCompatActivity {
                 case R.id.btn_CKPD_Start:
                     readTag();
                     loopFlag = true;
+                    lv_data.setAdapter(new MyAdapter());
                     break;
                 case R.id.btn_CKPD_CleanData:
                     break;
@@ -127,9 +128,7 @@ public class CKPDActivity extends AppCompatActivity {
             return;
         }
         if (!loopFlag) {
-            byte q = 0;
-            byte anti = 0;
-            if (mReader.startInventoryTag(anti, q)) {
+            if (mReader.startInventoryTag(0, 0)) {
                 loopFlag = true;
                 btn_Start.setText("停止扫描");
                 continuousRead();
@@ -149,12 +148,11 @@ public class CKPDActivity extends AppCompatActivity {
         public void run() {
             while (loopFlag) {
                 String[] res = mReader.readTagFromBuffer();
-                if (res != null) {
-                    Tag tag = new Tag();
-                    tag.SBMC = res[0];
-                    System.out.println(tag.SBMC);
-                    tags.add(tag);
-                }
+                System.out.println(res[0]);
+                Tag tag = new Tag();
+                tag.SBMC = res[0];
+                System.out.println(tag.SBMC);
+                tags.add(tag);
             }
         }
     }
