@@ -119,6 +119,7 @@ public class CKPDActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         mReader.init();
+                        System.out.println("Init");
                         readTag();
                         lv_data.setAdapter(new MyAdapter());
                     }
@@ -136,6 +137,7 @@ public class CKPDActivity extends AppCompatActivity {
             isStop = true;
             btn_Start.setText("停止扫描");
             new TagThread().start();
+            System.out.println("StartScan");
         }
     }
 
