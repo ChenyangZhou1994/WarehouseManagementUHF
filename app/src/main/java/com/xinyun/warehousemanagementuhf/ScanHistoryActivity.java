@@ -22,14 +22,13 @@ public class ScanHistoryActivity extends AppCompatActivity {
     private MyOpenHelper openHelper;
     private ArrayList<Data> datas = new ArrayList<Data>();
     private ListView lv_History;
-    private Button btn_History;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_history);
         openHelper = new MyOpenHelper(this);
-        btn_History = (Button) findViewById(R.id.btn_History);
+        Button btn_History = (Button) findViewById(R.id.btn_History);
         lv_History = (ListView) findViewById(R.id.lv_History);
         btn_History.setOnClickListener(new MyOnclickListener());
 
@@ -93,11 +92,6 @@ public class ScanHistoryActivity extends AppCompatActivity {
 
             //获取要显示的数据 拿着传入的position到数据集合中获取要展示的数据position就是当前条目在Listview中的索引
             //在展示数据的时候 第()个条目展示的就是集合中第()个元素
-
-
-            for (Data data:datas) {
-                System.out.println(data);
-            }
 
             Data data = datas.get(position);
 
