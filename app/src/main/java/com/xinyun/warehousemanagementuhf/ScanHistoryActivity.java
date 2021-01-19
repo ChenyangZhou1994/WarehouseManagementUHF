@@ -23,7 +23,7 @@ public class ScanHistoryActivity extends AppCompatActivity {
     private ArrayList<Data> datas = new ArrayList<Data>();
     private ListView lv_History;
     private Button btn_History;
-
+    ///12344
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
