@@ -52,13 +52,6 @@ public class CKPDActivity extends AppCompatActivity {
         lv_data = (ListView) findViewById(R.id.lv_data);
 
 
-        try {
-            mReader = RFIDWithUHF.getInstance();
-        } catch (ConfigurationException e) {
-            e.printStackTrace();
-        }
-        mReader.init();
-
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -100,7 +93,7 @@ public class CKPDActivity extends AppCompatActivity {
             Tag tag = tags.get(position);
 
             tv_Tag.setText(tag.SBID);
-            tv_Count.setText(tag.SBMC);
+            tv_Count.setText("1");
 
             return view;
         }
@@ -120,6 +113,12 @@ public class CKPDActivity extends AppCompatActivity {
                         mReader.free();
                     }
                     else {
+                        try {
+                            mReader = RFIDWithUHF.getInstance();
+                        } catch (ConfigurationException e) {
+                            e.printStackTrace();
+                        }
+                        mReader.init();
                         readTag();
                         lv_data.setAdapter(new MyAdapter());
                     }
